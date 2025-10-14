@@ -1,0 +1,28 @@
+{
+  "inicio": {
+    "texto": "Vocês estão na entrada de uma caverna escura. Um vento frio sopra de dentro. O que vocês fazem?",
+    "opcoes": {
+      "1": {"texto": "Acender uma tocha e entrar.", "destino": "caverna_dentro"},
+      "2": {"texto": "Desistir e voltar para a taverna.", "destino": "fim_taverna"}
+    }
+  },
+  "caverna_dentro": {
+    "texto": "A luz da tocha revela um baú de madeira trancado no centro da sala.",
+    "opcoes": {
+      "1": {"texto": "Tentar arrombar o baú.", "destino": "fim_armadilha"},
+      "2": {"texto": "Procurar por uma chave.", "destino": "chave_encontrada"}
+    }
+  },
+  "chave_encontrada": {
+    "texto": "Após procurar, vocês encontram uma chave de prata. O baú se abre revelando um tesouro! Fim.",
+    "opcoes": {}
+  },
+  "fim_taverna": {
+    "texto": "Vocês voltaram para a taverna e beberam até esquecer da aventura. Fim.",
+    "opcoes": {}
+  },
+  "fim_armadilha": {
+    "texto": "Ao tentar arrombar, o baú ativa uma armadilha de dardos. Fim.",
+    "opcoes": {}
+  }
+}
