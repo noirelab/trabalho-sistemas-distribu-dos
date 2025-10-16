@@ -76,14 +76,20 @@ def main():
 
             if estado_atual != ultimo_estado:
                 limpar_tela()
-                print("================ Aventura Cooperativa ================")
+                print("================ Aventura Cooperativa ================\n")
                 print("\n" + estado_atual["texto"] + "\n")
 
                 opcoes = estado_atual.get("opcoes", {})
-                if opcoes:
+                aguardando = estado_atual.get("aguardando", False)
+                
+                if aguardando:
+                    print("--- Aguardando início da história ---")
+                    print("O jogo iniciará automaticamente quando houver jogadores suficientes.")
+                elif opcoes:
                     print("--- Opções de Voto ---")
                     for id_opcao, detalhes in opcoes.items():
                         print(f"[{id_opcao}]: {detalhes['texto']}")
+                    print("\nUse o comando '/votar <numero>' para votar.")
                 else:
                     print("--- Fim da Aventura ---")
                     jogo_rodando = False
@@ -94,7 +100,11 @@ def main():
 
                 print("\n--------------------")
                 print(f"Jogadores conectados: {', '.join(estado_atual['jogadores'])}")
-                print("Digite sua mensagem ou comando de voto abaixo:")
+                
+                if not aguardando:
+                    print("Digite sua mensagem ou comando de voto abaixo:")
+                else:
+                    print("Digite suas mensagens no chat enquanto aguarda:")
 
                 ultimo_estado = estado_atual
 
